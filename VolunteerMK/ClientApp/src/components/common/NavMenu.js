@@ -1,38 +1,32 @@
-import React, { Component } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import React, { useState } from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  NavItem,
+  NavLink,
+} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LoginMenu } from '../api-authorization/LoginMenu'
 import './NavMenu.css';
+import { Grid } from '@material-ui/core/';
 
-export class NavMenu extends Component {
-  // static displayName = NavMenu.name;
+const NavMenu = () =>  {
 
-  constructor (props) {
-    super(props);
+  const [isOpen, setIsOpen] = useState(false);
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
-    this.state = {
-      collapsed: true
-    };
-  }
+  const toggle = () => setIsOpen(!isOpen);
 
-  toggleNavbar () {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  }
-
-  render () {
     return (
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
-          <Container>
             <NavbarBrand tag={Link} to="/">VolunteerMK</NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-            <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
+            <NavbarToggler onClick={toggle} className="mr-2" />
+            <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={isOpen} navbar>
               <ul className="navbar-nav flex-grow">
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/">Почетна</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
@@ -44,9 +38,9 @@ export class NavMenu extends Component {
                 </LoginMenu>
               </ul>
             </Collapse>
-          </Container>
-        </Navbar>
+          </Navbar>
       </header>
     );
-  }
 }
+
+export {NavMenu};

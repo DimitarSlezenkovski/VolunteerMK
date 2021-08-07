@@ -1,31 +1,74 @@
-import React from 'react';
-import Container from 'reactstrap/lib/Container';
-import { Grid } from '@material-ui/core';
-import { Typography } from '@material-ui/core'; 
-import Search from './common/Search';
-import {Card} from './common/Card.js';
-import {ads} from '../repository/mockData'
+import React from "react";
+import Container from "reactstrap/lib/Container";
+import { Grid } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import Search from "./common/Search";
+import { Card } from "./common/Card.js";
+import { ads } from "../repository/mockData";
 
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 450,
+      md: 600,
+      lg: 900,
+      xl: 1200,
+      tablet: 1024,
+    },
+  },
+});
 
 const Home = () => {
   // static displayName = Home.name;
 
   return (
-    <>
-      <Container>
-        <Grid style={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-          <Typography variant="h5" component="h5" gutterBottom>{"Листа на организации кои имаат потреба од волонтери"}</Typography>
+      <Grid  style={{
+        width: "100%",
+        height: "100%"
+      }}>
+        <Grid
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+          
+        >
+          <Typography variant="h5" component="h5" gutterBottom>
+            {"Листа на организации кои имаат потреба од волонтери"}
+          </Typography>
         </Grid>
-        <Grid style={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+        <Grid
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <Search />
         </Grid>
-        <Grid style={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-          {
-            <Card ads={ads} />
-          }
+        <Grid
+          item
+          container
+          xs={1}
+          sm={3}
+          md={6}
+          lg={9}
+          xl={12}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "flex-start",
+            textAlign: "center",
+          }}
+        >
+          <Card ads={ads} />
         </Grid>
-      </Container>
-    </>
+      </Grid>
   );
-}
+};
 export default Home;
