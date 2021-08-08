@@ -6,7 +6,6 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Grid,
   Button,
   Typography,
   useMediaQuery,
@@ -38,13 +37,14 @@ const CardVolunteer = (props) => {
 
   return ads.map((e, index) => {
     return (
+      <div style={{ display: "flex", justifyContent: "space-around"}}>
         <Card 
           style={{
             background: "#F4F4F4",
             padding: 10,
             borderRadius: 10,
             margin: 10,
-            width: "14vw",
+            width: "13vw",
           }}
         >
           <CardActionArea>
@@ -72,11 +72,12 @@ const CardVolunteer = (props) => {
               textAlign: "center",
             }}
           >
-            <Button style={{ width: "15vw", background: "#32C71A" }}>
+            <Button style={{ width: "100%", background: "#32C71A" }}>
               Волонтирај
             </Button>
           </CardActions>
         </Card>
+        </div>
     );
   });
 };

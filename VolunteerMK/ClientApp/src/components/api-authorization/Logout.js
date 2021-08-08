@@ -45,7 +45,7 @@ export class Logout extends Component {
     render() {
         const { isReady, message } = this.state;
         if (!isReady) {
-            return <div></div>
+            return null;
         }
         if (!!message) {
             return (<div>{message}</div>);

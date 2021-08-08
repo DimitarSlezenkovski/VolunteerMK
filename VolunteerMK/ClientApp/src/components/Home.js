@@ -24,51 +24,54 @@ const Home = () => {
   // static displayName = Home.name;
 
   return (
-      <Grid  style={{
-        width: "100%",
-        height: "100%"
-      }}>
+    <div style={{ height: "100%", width: "100%" }}>
+      <Grid
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop: "4vh",
+        }}
+      >
+        <Typography variant="h5" component="h5" style={{ marginTop: "6.5vh" }}>
+          {"Листа на организации кои имаат потреба од волонтери"}
+        </Typography>
+      </Grid>
+      <Grid
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop: "4vh",
+        }}
+      >
+        <Search />
+      </Grid>
+      <Grid
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "4vh",
+        }}
+      >
         <Grid
+          item
+          container
+          sm={6}
+          md={6}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            textAlign: "center",
-          }}
-          
-        >
-          <Typography variant="h5" component="h5" gutterBottom>
-            {"Листа на организации кои имаат потреба од волонтери"}
-          </Typography>
-        </Grid>
-        <Grid
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        >
-          <Search />
-        </Grid>
-        <Grid
-          item
-          container
-          xs={1}
-          sm={3}
-          md={6}
-          lg={9}
-          xl={12}
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "flex-start",
-            textAlign: "center",
           }}
         >
           <Card ads={ads} />
         </Grid>
       </Grid>
+    </div>
   );
 };
 export default Home;
